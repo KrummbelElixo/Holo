@@ -17,11 +17,12 @@ class SayCommand : ListenerAdapter() {
     }
 
     override fun onSlashCommandInteraction(@NotNull event: SlashCommandInteractionEvent) {
-        if(event.getName().equals("say")) {
+        if(event.name == "say") {
             val messageOption = event.getOption("mensagem")
             val mensagem = messageOption?.asString
             if (mensagem != null) {
                 event.channel.sendMessage(mensagem).queue()
+                event.reply("Sua mensagem foi enviada!").setEphemeral(true).queue()
             }
         }
     }
