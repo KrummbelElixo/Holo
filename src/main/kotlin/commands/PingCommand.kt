@@ -17,7 +17,7 @@ class PingCommand : ListenerAdapter() {
     override fun onSlashCommandInteraction(event: SlashCommandInteractionEvent) {
         if(event.name == "ping") {
             val embed = EmbedBuilder()
-            embed.setTitle(":ping_pong: Ping da Holo")
+            embed.setTitle(":ping_pong: Ping da ${event.jda.selfUser.effectiveName}")
                 .setDescription("O ping do bot é de **${event.jda.gatewayPing} ms**")
                 .setFooter("Comando enviado por ${event.user.name}", event.user.avatarUrl)
                 .setColor(Color(139, 255, 0))

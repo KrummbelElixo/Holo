@@ -4,6 +4,9 @@ import com.holo.bot.commands.AvatarCommand
 import com.holo.bot.commands.CommandManager
 import com.holo.bot.commands.PingCommand
 import com.holo.bot.commands.SayCommand
+import commands.BanCommand
+import commands.KickCommand
+import events.MentionEvent
 import io.github.cdimascio.dotenv.Dotenv
 import net.dv8tion.jda.api.JDABuilder
 import net.dv8tion.jda.api.OnlineStatus
@@ -28,11 +31,19 @@ class Main {
         builder.enableCache(EnumSet.allOf(CacheFlag::class.java))
         val shardManager = builder.build()
 
+        //Events
+        shardManager.addEventListener(
+            MentionEvent()
+        )
+
+        //Commands
         shardManager.addEventListener(
             CommandManager(),
             SayCommand(),
             PingCommand(),
-            AvatarCommand()
+            AvatarCommand(),
+            BanCommand(),
+            KickCommand()
         )
     }
 }

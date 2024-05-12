@@ -23,12 +23,14 @@ class AvatarCommand : ListenerAdapter() {
 
             if(usuarioOption != null) {
                 embed.setTitle(":frame_photo: Avatar de ${usuarioOption.asUser.name}")
-                embed.setImage(usuarioOption.asUser.avatarUrl)
-                embed.setFooter("Comando enviado por ${event.user.name}", event.user.avatarUrl)
+                    .setUrl(usuarioOption.asUser.avatarUrl)
+                    .setImage(usuarioOption.asUser.avatarUrl)
+                    .setFooter("Comando enviado por ${event.user.name}", event.user.avatarUrl)
             } else {
                 embed.setTitle(":frame_photo: Avatar de ${event.user.name}")
-                embed.setImage(event.user.avatarUrl)
-                embed.setFooter("Comando enviado por ${event.user.name}", event.user.avatarUrl)
+                    .setUrl(event.user.avatarUrl)
+                    .setImage(event.user.avatarUrl)
+                    .setFooter("Comando enviado por ${event.user.name}", event.user.avatarUrl)
             }
 
             event.replyEmbeds(embed.build()).queue()
