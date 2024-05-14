@@ -6,6 +6,7 @@ import com.holo.bot.commands.PingCommand
 import com.holo.bot.commands.SayCommand
 import commands.BanCommand
 import commands.KickCommand
+import commands.UserInfoCommand
 import events.MentionEvent
 import io.github.cdimascio.dotenv.Dotenv
 import net.dv8tion.jda.api.JDABuilder
@@ -17,7 +18,7 @@ import net.dv8tion.jda.api.utils.MemberCachePolicy
 import net.dv8tion.jda.api.utils.cache.CacheFlag
 import java.util.*
 import javax.security.auth.login.LoginException
-//Bot desenvolvido em Kotlin
+
 class Main {
     private val config: Dotenv = Dotenv.configure().load()
 
@@ -43,7 +44,8 @@ class Main {
             PingCommand(),
             AvatarCommand(),
             BanCommand(),
-            KickCommand()
+            KickCommand(),
+            UserInfoCommand()
         )
     }
 }
