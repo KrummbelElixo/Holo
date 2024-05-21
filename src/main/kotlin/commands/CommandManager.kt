@@ -1,14 +1,10 @@
-package com.holo.bot.commands
+package commands
 
-import commands.BanCommand
-import commands.KickCommand
-import commands.UserInfoCommand
 import net.dv8tion.jda.api.events.session.ReadyEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
-import org.jetbrains.annotations.NotNull
 
 class CommandManager : ListenerAdapter() {
-     override fun onReady(@NotNull event: ReadyEvent) {
+     override fun onReady(event: ReadyEvent) {
          val commandData = listOf(
              SayCommand.getCommandData(),
              PingCommand.getCommandData(),

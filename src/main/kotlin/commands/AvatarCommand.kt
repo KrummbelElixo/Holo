@@ -1,6 +1,7 @@
-package com.holo.bot.commands
+package commands
 
 import net.dv8tion.jda.api.EmbedBuilder
+import net.dv8tion.jda.api.entities.User
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
 import net.dv8tion.jda.api.interactions.commands.OptionType
@@ -21,17 +22,18 @@ class AvatarCommand : ListenerAdapter() {
             val usuarioOption = event.getOption("usuario")
             val embed = EmbedBuilder()
 
+            val usuario: User
+
             if(usuarioOption != null) {
-                embed.setTitle(":frame_photo: Avatar de ${usuarioOption.asUser.name}")
-                    .setUrl(usuarioOption.asUser.avatarUrl)
-                    .setImage(usuarioOption.asUser.avatarUrl)
-                    .setFooter("Comando enviado por ${event.user.name}", event.user.avatarUrl)
+                usuario = usuarioOption.asUser
             } else {
-                embed.setTitle(":frame_photo: Avatar de ${event.user.name}")
-                    .setUrl(event.user.avatarUrl)
-                    .setImage(event.user.avatarUrl)
-                    .setFooter("Comando enviado por ${event.user.name}", event.user.avatarUrl)
+                usuario = event.user
             }
+
+            embed.setTitle(":frame_photo: Avatar de ${usuario.name}")
+                .setUrl(usuario.avatarUrl)
+                .setImage("${usuario.avatarUrl}?size=2048")
+                .setFooter("Comando enviado por ${event.user.name}", event.user.avatarUrl)
 
             event.replyEmbeds(embed.build()).queue()
         }

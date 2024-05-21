@@ -1,12 +1,11 @@
-package com.holo.bot.commands
+package commands
 
-import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
-import net.dv8tion.jda.api.interactions.commands.OptionType
+import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
 import net.dv8tion.jda.api.interactions.commands.build.CommandData
-import net.dv8tion.jda.api.interactions.commands.build.Commands
 import net.dv8tion.jda.api.interactions.commands.build.OptionData
-import org.jetbrains.annotations.NotNull
+import net.dv8tion.jda.api.interactions.commands.build.Commands
+import net.dv8tion.jda.api.interactions.commands.OptionType
 
 class SayCommand : ListenerAdapter() {
     companion object {
@@ -16,7 +15,7 @@ class SayCommand : ListenerAdapter() {
         }
     }
 
-    override fun onSlashCommandInteraction(@NotNull event: SlashCommandInteractionEvent) {
+    override fun onSlashCommandInteraction(event: SlashCommandInteractionEvent) {
         if(event.name == "say") {
             val messageOption = event.getOption("mensagem")
             val mensagem = messageOption?.asString
