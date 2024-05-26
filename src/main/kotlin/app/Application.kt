@@ -10,7 +10,7 @@ import net.dv8tion.jda.api.requests.GatewayIntent
 import net.dv8tion.jda.api.utils.ChunkingFilter
 import net.dv8tion.jda.api.utils.MemberCachePolicy
 import net.dv8tion.jda.api.utils.cache.CacheFlag
-import java.util.*
+import java.util.EnumSet
 
 class Application {
     private val config: Dotenv = Dotenv.configure().load()
