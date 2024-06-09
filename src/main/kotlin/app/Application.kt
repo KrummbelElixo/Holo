@@ -1,7 +1,7 @@
 package app
 
-import commands.*
-import events.*
+import app.commands.*
+import app.events.*
 import io.github.cdimascio.dotenv.Dotenv
 import net.dv8tion.jda.api.JDABuilder
 import net.dv8tion.jda.api.OnlineStatus

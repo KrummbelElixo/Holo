@@ -1,4 +1,4 @@
-package events
+package app.events
 
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.entities.MessageEmbed
@@ -11,7 +11,7 @@ class MentionEvent : ListenerAdapter() {
     override fun onMessageReceived(event: MessageReceivedEvent) {
         if(event.message.contentRaw == event.jda.selfUser.asMention) {
             val embed = EmbedBuilder()
-            val button = Button.link("https://discord.com/api/oauth2/authorize?client_id=${event.jda.selfUser.id}&permissions=2086&scope=bot%20applications.commands",
+            val button = Button.link("https://discord.com/api/oauth2/authorize?client_id=${event.jda.selfUser.id}&permissions=2086&scope=bot%20applications.app.commands",
                 "✉\uFE0F Convide-me")
 
             embed.setTitle("Oi, eu sou a ${event.jda.selfUser.effectiveName}!!")
